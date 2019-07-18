@@ -18,8 +18,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 public class BasePage {
 	
-	WebDriver driver;//these are global variables used through out the framework
-	Properties prop;
+	public WebDriver driver;//these are global variables used through out the framework
+	public Properties prop;
 	
 	/**
 	 * This method is to Initialize the driver
