@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.qa.halpricebooks.utilities.UtilityOfTime;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
@@ -47,6 +49,10 @@ public class BasePage {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().fullscreen();
 		driver.get(prop.getProperty("url"));
+		
+		//Thread.sleep(5000);//to make it look good create a wrapper for Thread.sleep method in Utility package
+		UtilityOfTime.Medium_Time_Wait();//our own utility Method
+		
 		return driver;
 	}
 	/**
@@ -61,14 +67,11 @@ public class BasePage {
 			try {
 				prop.load(fip);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return prop;
 	}
 	

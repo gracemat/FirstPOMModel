@@ -37,6 +37,9 @@ public class LoginPageTest {
 		// To remove hardcodingfor expected value we created Constants class
 		Assert.assertEquals(loginTitle, ConstantValues.LOGIN_PAGE_TITLE);
 	}
+	
+	@Test
+	
 
 	@AfterMethod
 	public void tearDown()
