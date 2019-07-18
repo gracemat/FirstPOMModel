@@ -46,7 +46,7 @@ public class BasePage {
 		
 		driver.manage().deleteAllCookies();
 		driver.manage().window().fullscreen();
-		
+		driver.get(prop.getProperty("url"));
 		return driver;
 	}
 	/**
