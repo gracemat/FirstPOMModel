@@ -22,6 +22,17 @@ public class LoginPage extends BasePage {
 	@FindBy(linkText="click here")
 	WebElement returningGuest;
 	
+	//@FindBy(using ="Submit")-- here it is not allowing @FindBy
+	@FindBy(className= "typeahead search-query")// The annotation @FindBy is disallowed for this location
+	//@FindBy(id="keywords")
+	WebElement search;
+	
+	@FindBy(xpath="//*[@id=\"user_login\"]/div[4]/div/label")
+	WebElement keepMeLogged;
+	
+	@FindBy(css="body > div.page-wrap > div.sticky > div.header-navigation > div > ul > li:nth-child(7) > a")
+	WebElement sale;
+	
 	//Create Constructor of this class and intialize page objects--2nd step
 	
 	public LoginPage(WebDriver driver)
@@ -56,4 +67,34 @@ public class LoginPage extends BasePage {
 		password.sendKeys(pwd);
 		logIn.click();
 		}
+	/**
+	 * This Method is used to check the current URL
+	 * @return
+	 */
+	public String getURL()
+	{
+		return driver.getCurrentUrl();
+	}
+	/**
+	 * This Method checks the Checkbox is selected or not
+	 * @return
+	 */
+	public boolean verifyKeepMeLoggedInCheckBox() {
+		return keepMeLogged.isSelected();
+		
+	}
+	/**
+	 * Making sure to learn about returning getclass
+	 * @return
+	 */
+	public Class<? extends WebElement> verifySaleLink() {
+		return sale.getClass();
+		}
+	/**
+	 * This method is to click on Sale 
+	 */
+	public void saleLinkCheck()
+	{
+		sale.click();
+	}
 }
