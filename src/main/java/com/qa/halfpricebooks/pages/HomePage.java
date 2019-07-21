@@ -26,7 +26,8 @@ public class HomePage extends BasePage {
 	@FindBy(css = "body > div.page-wrap > div.secondary-header > div > div.small-7.large-6.columns > div > form > button")
 	WebElement searchBox;
 
-	@FindBy(name = "keywords")
+	//@FindBy(name = "keywords")
+	@FindBy(xpath="//input[@class='typeahead search-query']")
 	WebElement searchQuerry;
 
 	// Creating a constructor again same as LoginPAge
@@ -92,5 +93,10 @@ public class HomePage extends BasePage {
 	 */
 	public String verifySearchQuerryText() {
 		return searchQuerry.getText();
+	}
+	
+	public String getHomePageTitle()
+	{
+		return driver.getTitle();
 	}
 }
