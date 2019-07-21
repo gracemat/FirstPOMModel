@@ -6,5 +6,11 @@ public class ConstantValues {
 	public static final String SALE_PAGE_URL = "https://hpb.com/quirky-feed/clearance-sale";
 	
 	public static final String STORE_LOCATIONS_PAGE_TITLE = "Our Stores, Find a Store | Half Price Books";
+	
+	public static final String LOGGED_USER_NAME = "Grace";
+	
+	public static final String HEADER_LOGO = "HPB";
 
+	public static final String HOMEPAGE_TITLE = "New & Used Books, Textbooks, Music & Movies | Half Price Books";
+	
 }
