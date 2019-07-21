@@ -47,7 +47,7 @@ public class LoginPageTest {
 	@Test(priority=3,enabled = true)
 	public void verify_with_correct_Credentials_Test()
 	{
-		loginPage.login_credentials(property.getProperty("username"), property.getProperty("password"));
+		loginPage.login_With_credentials(property.getProperty("username"), property.getProperty("password"));
 		//Assert.assertEquals(, property.getProperty("username"));
 		
 	}
@@ -55,7 +55,7 @@ public class LoginPageTest {
 	@Test(priority=4,enabled = true)
 	public void verify_With_Incorrect_Credentials()
 	{
-		loginPage.login_credentials("grace@gmail.com","loginnow");
+		loginPage.login_With_credentials("grace@gmail.com","loginnow");
 		//loginPage.login_incorrect_credentials("grace@gmail.com","loginnow","Invalid email or password.");
 		Assert.assertTrue(loginPage.login_incorrect_credentials("grace@gmail.com", "loginnow", "Invalid email or password."));
 		
