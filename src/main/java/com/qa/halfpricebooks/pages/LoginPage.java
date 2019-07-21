@@ -64,11 +64,14 @@ public class LoginPage extends BasePage {
 	 * This method is used to login with credentials
 	 * @param userName
 	 * @param pwd
+	 * @return 
 	 */
-	public void login_credentials(String userName,String pwd) {
+	public HomePage login_With_credentials(String userName,String pwd) {
 		emailAddress.sendKeys(userName);
 		password.sendKeys(pwd);
 		logIn.click();
+		// Added this below line for page chaining
+		return new HomePage(driver);
 		}
 	/**
 	 * This method is to check the displayed msg when both  incorrect credentials are given

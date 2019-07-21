@@ -11,7 +11,7 @@ public class HomePage extends BasePage {
 
 	// Page Objects
 
-	@FindBy(linkText = "/stores")
+	@FindBy(xpath="//div[@class='find-a-store mtm']")
 	WebElement storeLocator;
 
 	@FindBy(xpath = "//i[@class='icons-cart-white mll']")
@@ -43,9 +43,9 @@ public class HomePage extends BasePage {
 	 * 
 	 * @return
 	 */
-	public String checkForStroreLocations() {
+	public void checkForStroreLocations() {
 		storeLocator.click();
-		return driver.getTitle();
+		//return driver.getTitle();
 	}
 
 	/**
