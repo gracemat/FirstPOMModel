@@ -33,6 +33,9 @@ public class LoginPage extends BasePage {
 	@FindBy(css="body > div.page-wrap > div.sticky > div.header-navigation > div > ul > li:nth-child(7) > a")
 	WebElement sale;
 	
+	@FindBy(xpath="//div[@class='alert-box error']")
+	WebElement errorMsg;
+	
 	//Create Constructor of this class and intialize page objects--2nd step
 	
 	public LoginPage(WebDriver driver)
@@ -68,7 +71,24 @@ public class LoginPage extends BasePage {
 		logIn.click();
 		}
 	/**
-	 * This Method is used to check the current URL
+	 * This method is to check the displayed msg when both  incorrect credentials are given
+	 * @param userName
+	 * @param pswd
+	 * @param msg
+	 * @return
+	 */
+	public boolean login_incorrect_credentials(String userName,String pswd,String msg)
+	{
+		emailAddress.sendKeys(userName);
+		password.sendKeys(pswd);
+		logIn.click();
+		msg = errorMsg.getText();
+		boolean flag = true;
+		return flag;
+	}
+	 
+	/**
+	* This Method is used to check the current URL
 	 * @return
 	 */
 	public String getURL()
@@ -96,5 +116,6 @@ public class LoginPage extends BasePage {
 	public void saleLinkCheck()
 	{
 		sale.click();
+		
 	}
 }
