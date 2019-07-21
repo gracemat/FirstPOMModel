@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.qa.halfpricebooks.base.BasePage;
+import com.qa.halpricebooks.utilities.UtilityOfTime;
 
 public class LoginPage extends BasePage {
 	//Defining Locators with the help of PageFactory -- Page Objects or WebElements --- 1st step
@@ -70,6 +71,8 @@ public class LoginPage extends BasePage {
 		emailAddress.sendKeys(userName);
 		password.sendKeys(pwd);
 		logIn.click();
+		//Adding some waiting timefor home page
+		UtilityOfTime.short_Time_Wait();
 		// Added this below line for page chaining
 		return new HomePage(driver);
 		}
