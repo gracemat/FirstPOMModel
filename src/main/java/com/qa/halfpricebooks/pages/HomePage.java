@@ -94,7 +94,10 @@ public class HomePage extends BasePage {
 	public String verifySearchQuerryText() {
 		return searchQuerry.getText();
 	}
-	
+	/**
+	 * This method returns HomePageTitle
+	 * @return
+	 */
 	public String getHomePageTitle()
 	{
 		return driver.getTitle();
