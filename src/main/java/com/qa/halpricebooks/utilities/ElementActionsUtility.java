@@ -40,27 +40,46 @@ public class ElementActionsUtility extends BasePage {
 		WebDriverWait waitForElem =new  WebDriverWait(driver,15);
 		waitForElem.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
+	/**
+	 * This method is to wait for the title of the page to be displayed
+	 * @param title
+	 */
 	public void waitForTitleUtil(String title)
 	{ 
 		WebDriverWait titleWait = new WebDriverWait(driver, 15);
 		titleWait.until(ExpectedConditions.titleContains(title));
 	}
+	/**
+	 * This method is wrapper method for .isDisplayed() method
+	 * @param locator
+	 * @return bollean value for IsDisplayed function
+	 */
 	public boolean elementIsDisplayed(By locator)
 	{	
 		waitForElemMethod(locator);
 		return elementFromByLocator(locator).isDisplayed();
 	}
-	
+	/**
+	 * This method is Wrapper for .click()
+	 * @param locator
+	 */
 	public void clickOnWebElem(By locator)
 	{
 		elementFromByLocator(locator).click();
 	}
-	
+	/**
+	 * This method is our creation of sendKeys Util method
+	 * @param locator
+	 * @param value
+	 */
 	public void sendKeysForWebElem(By locator,String value) 
 	{
 	elementFromByLocator(locator).sendKeys(value);	
 	}
-	
+	/**
+	 * This method returns title of the page also does error Handling which is very useful to give proper error msg ****interview question
+	 * @return
+	 */
 	public String getTitleOfPage()
 	{
 		String pageTitle = null;
