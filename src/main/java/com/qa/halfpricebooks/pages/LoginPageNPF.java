@@ -1,8 +1,10 @@
 package com.qa.halfpricebooks.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 import com.qa.halfpricebooks.base.BasePage;
+import com.qa.halfpricebooks.constants.ConstantValues;
 import com.qa.halpricebooks.utilities.ElementActionsUtility;
 
 public class LoginPageNPF extends BasePage {
@@ -12,7 +14,8 @@ public class LoginPageNPF extends BasePage {
 	By loginBtn = By.id("login_button");
 	By link = By.linkText("click here");
 	ElementActionsUtility elemAct;
-	public LoginPageNPF() {
+	
+	public LoginPageNPF(WebDriver driver) {
 		this.driver = driver;
 	elemAct = new ElementActionsUtility(driver);
 		
@@ -21,12 +24,13 @@ public class LoginPageNPF extends BasePage {
 	//Page Actions
 	public String getTitlewithNPF()
 	{
-		return driver.getTitle();
+		elemAct.waitForTitleUtil(ConstantValues.LOGIN_PAGE_TITLE);
+		return elemAct.getTitleOfPage();
 	}
 	
-	public void verifyGuestLinkNPF(By locator)
+	public boolean verifyGuestLinkNPF()
 	{
-	elemAct.elementIsDisplayed(link);
+	return elemAct.elementIsDisplayed(link);
 	}
 	
 	public void clickOnLoginBtnNPF() 

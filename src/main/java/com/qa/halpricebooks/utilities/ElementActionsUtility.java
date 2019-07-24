@@ -9,11 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.qa.halfpricebooks.base.BasePage;
 
 public class ElementActionsUtility extends BasePage {
-<<<<<<< HEAD
-	
-=======
 	WebElement elem;
->>>>>>> ee78c7e0db19f85ccabd4e3d2c9abc1fb14810ce
 	//1.Creating a constructor and extend class to BasePage because we need object to call the methods
 	public ElementActionsUtility(WebDriver driver)
 	{
@@ -27,13 +23,8 @@ public class ElementActionsUtility extends BasePage {
 	
 	public WebElement elementFromByLocator(By locator)
 	{
-<<<<<<< HEAD
-	WebElement elem = driver.findElement(locator);
-	return elem;
-	}
-	
-=======
-		try {
+	//WebElement elem = driver.findElement(locator);
+	try {
 	 elem = driver.findElement(locator);
 		}
 		catch (Exception e) {
@@ -44,17 +35,19 @@ public class ElementActionsUtility extends BasePage {
 	 * This method is for wait method to element to be displayed
 	 * @param locator
 	 */
->>>>>>> ee78c7e0db19f85ccabd4e3d2c9abc1fb14810ce
 	public void waitForElemMethod(By locator)
 	{
 		WebDriverWait waitForElem =new  WebDriverWait(driver,15);
 		waitForElem.until(ExpectedConditions.presenceOfElementLocated(locator));
 	}
-	
-<<<<<<< HEAD
-=======
+	public void waitForTitleUtil(String title)
+	{ 
+		WebDriverWait titleWait = new WebDriverWait(driver, 15);
+		titleWait.until(ExpectedConditions.titleContains(title));
+	}
 	public boolean elementIsDisplayed(By locator)
-	{
+	{	
+		waitForElemMethod(locator);
 		return elementFromByLocator(locator).isDisplayed();
 	}
 	
@@ -67,5 +60,16 @@ public class ElementActionsUtility extends BasePage {
 	{
 	elementFromByLocator(locator).sendKeys(value);	
 	}
->>>>>>> ee78c7e0db19f85ccabd4e3d2c9abc1fb14810ce
+	
+	public String getTitleOfPage()
+	{
+		String pageTitle = null;
+	try {
+		 pageTitle =  driver.getTitle();
+	}catch(Exception e) {
+		System.out.println("Driver is not able to get title: "+pageTitle);
+	}
+		 return pageTitle;
+	}
+
 }

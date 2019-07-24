@@ -51,7 +51,7 @@ public class BasePage {
 		driver.get(prop.getProperty("url"));
 		
 		//Thread.sleep(5000);//to make it look good create a wrapper for Thread.sleep method in Utility package
-		UtilityOfTime.Medium_Time_Wait();//our own utility Method
+		//UtilityOfTime.Medium_Time_Wait();//our own utility Method
 		
 		return driver;
 	}
