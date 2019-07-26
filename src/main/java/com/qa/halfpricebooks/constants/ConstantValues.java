@@ -13,4 +13,7 @@ public class ConstantValues {
 
 	public static final String HOMEPAGE_TITLE = "New & Used Books, Textbooks, Music & Movies | Half Price Books";
 	
+	public static final String COUPON_PAGE_TITLE = "Half Price Books - 20% Off Online Order";
+	
+	
 }

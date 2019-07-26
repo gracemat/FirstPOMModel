@@ -18,9 +18,8 @@ public class LoginPageNPF extends BasePage {
 	public LoginPageNPF(WebDriver driver) {
 		this.driver = driver;
 	elemAct = new ElementActionsUtility(driver);
-		
+		//driver.manage().deleteAllCookies();
 	}
-	
 	//Page Actions :::
 	/**
 	 * This method is used to get Login Page Title in NPF style with wrapper methods like methods created by us in ElementActionUtil class
@@ -52,12 +51,12 @@ public class LoginPageNPF extends BasePage {
 	 * @param password
 	 * @return new object of HomePage class after logging in 
 	 */
-	public HomePage doLoginNPF(String username,String password) {
+	public HomePageNPF doLoginNPF(String username,String password) {
 		System.out.println("Credentials :"+username +" / "+password);
 		elemAct.sendKeysForWebElem(emailAddress, username);
 		elemAct.sendKeysForWebElem(pswd, password);
 		elemAct.clickOnWebElem(loginBtn);
 		
-		return new HomePage(driver);
+		return new HomePageNPF(driver);
 	}
 }

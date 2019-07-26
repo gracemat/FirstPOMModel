@@ -10,7 +10,8 @@ import com.qa.halpricebooks.utilities.ElementActionsUtility;
 public class HomePageNPF extends BasePage {
 	//By Locators 
 	By findAStore = By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/a");
-	By couponCode = By.xpath("//div[@class='offer']");
+	//By coupon = By.linkText("<a href=\"https://halfpricebooks.com/getink/\">SEE DETAILS</a>");
+	By couponCode = By.xpath("/html/body/div[1]/div[2]/div/div[1]/div/div/a");//Fix these after practicing Custom XPath *****
 	By nameOfUser = By.id("welcome-back-name");
 	By cartIcon = By.xpath("/html/body/div[1]/div[1]/div[1]/div/div[3]/div/a[2]/i");
 	
@@ -27,30 +28,36 @@ public class HomePageNPF extends BasePage {
 	/**
 	 * This method return title of HomePage NPF style
 	 */
-	public void getHomePageTitle()
+	public String getHomePageTitle()
 	{
-		actionUtil.waitForTitleUtil(ConstantValues.HOMEPAGE_TITLE);
-		actionUtil.getTitleOfPage();
+		//actionUtil.waitForTitleUtil(ConstantValues.HOMEPAGE_TITLE);
+		
+		return actionUtil.getTitleOfPage();
 	}
 	/**
-	 * This method is check for Cart Icon Display
+	 * This method is check for Cart Icon Enability
+	 * @return 
 	 */
-	public void CartIconisDisplayed()
+	public boolean CartIconisEnabled()
 		{
-		actionUtil.elementIsDisplayed(cartIcon);
+		return actionUtil.elementIsEnabled(cartIcon);
 		}
 	/**
 	 * This method is used to click on Coupon details link
 	 */
-	public void couponCodeLink()
+	public boolean couponCodeLink()
 	{
-		actionUtil.clickOnWebElem(couponCode);
+		//actionUtil.clickOnWebElem(couponCode);
+		return actionUtil.elementIsDisplayed(couponCode);
+		//String couponPageTitle = driver.getTitle();
+		//return couponPageTitle;
 	}
 	/**
 	 * This method is used to get LoggedIn Users name
+	 * @return 
 	 */
-	public void getLoggedUserName() {
-		actionUtil.elementFromByLocator(nameOfUser).getText();
+	public String getLoggedUserName() {
+		return actionUtil.elementFromByLocator(nameOfUser).getText();
 	}
 }
 

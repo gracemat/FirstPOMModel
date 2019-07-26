@@ -14,6 +14,7 @@ public class ElementActionsUtility extends BasePage {
 	public ElementActionsUtility(WebDriver driver)
 	{
 		this.driver = driver;
+		//driver.manage().deleteAllCookies();
 	}
 	/**
 	 * This method is used to get the Element
@@ -58,6 +59,16 @@ public class ElementActionsUtility extends BasePage {
 	{	
 		waitForElemMethod(locator);
 		return elementFromByLocator(locator).isDisplayed();
+	}
+	/**
+	 * This method check for an Element if its enabled or not
+	 * @param locator
+	 * @return boolean value
+	 */
+	public boolean elementIsEnabled(By locator)
+	{
+	waitForElemMethod(locator);
+	return elementFromByLocator(locator).isEnabled();
 	}
 	/**
 	 * This method is Wrapper for .click()
